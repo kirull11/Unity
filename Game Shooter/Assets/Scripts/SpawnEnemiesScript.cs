@@ -6,11 +6,11 @@ public class SpawnEnemiesScript : MonoBehaviour
 {
     public int Number;
     public Transform Position;
-    public GameObject Zombie1;
+    public GameObject zombie1;
 
     void Start()
     {
-        var g01 = Instantiate(Zombie1, Position.position, Quaternion.identity);
+        var g01 = Instantiate(zombie1, Position.position, Quaternion.identity);
     }
 
     void Update()
