@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
-        Debug.Log(_direction);
+        //Debug.Log(_direction);
         //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_direction), Time.deltaTime * rotationSpeed);
     }
 
