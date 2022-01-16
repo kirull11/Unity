@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed;
-    public float rotationSpeed = 10f;
-    private Vector3 _direction;
-    void Start()
+    public float speed = 7f;
+
+    private void Update()
     {
-        
+        GetInput();
     }
 
-    void Update()
+    private void GetInput()
     {
-        _direction.x = Input.GetAxis("Horizontal");
-        _direction.z = Input.GetAxis("Vertical");
-        //Debug.Log(_direction);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_direction), Time.deltaTime * rotationSpeed);
-    }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.localPosition += transform.forward * speed * Time.deltaTime;
+        }
 
-    void FixedUpdate()
-    {
-        transform.position = transform.position + _direction * Time.fixedDeltaTime * Speed;
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.localPosition += -transform.forward * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.localPosition += -transform.right * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.localPosition += transform.right * speed * Time.deltaTime;
+        }
     }
 }
+
+

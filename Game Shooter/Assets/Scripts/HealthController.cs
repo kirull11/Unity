@@ -1,24 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private float MaxHealthPoints;
-    //[Range(0, 1f)] private float Range;
+    public float MaxHealthPoints;
 
-    [HideInInspector] public float CurrentHealth;
+    public float currentHealth;
+
+    public Action<float> HealthChanged;
+
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = value;
+            HealthChanged.Invoke(currentHealth);
+        }
+    }
 
     void Start()
     {
         CurrentHealth = MaxHealthPoints;
-        /*if (gameObject.TryGetComponent<MoveController>(out var c))
-        {
-            //c.
-        }*/
+        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (CurrentHealth <= 0)
