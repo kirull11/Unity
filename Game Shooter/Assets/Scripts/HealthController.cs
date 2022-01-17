@@ -16,8 +16,11 @@ public class HealthController : MonoBehaviour
         get => currentHealth;
         set
         {
-            currentHealth = value;
-            HealthChanged.Invoke(currentHealth);
+            if (HealthChanged != null)
+            {
+                currentHealth = value;
+                HealthChanged.Invoke(currentHealth);
+            }
         }
     }
 

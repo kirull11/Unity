@@ -33,12 +33,20 @@ public class ShootScript : MonoBehaviour
 
     void Shoot()
     {
+        EnemyHp enemyHp;
+
         _audioSource.PlayOneShot(shotSFX);
 
         RaycastHit hit;
 
         if (Physics.Raycast(_cam.transform.position,_cam.transform.forward,out hit,range))
         {
+            if (hit.transform.tag == "Enemy")
+            {
+                enemyHp = hit.transform.GetComponent<EnemyHp>();
+                enemyHp.health--;
+                Debug.Log(enemyHp.health);
+            }
             Debug.Log("Вы попали в обьект!" + hit.collider);
 
             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
