@@ -12,6 +12,8 @@ public class MineScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+       
+
         if (other.CompareTag("Player"))
         {
             var hc = other.GetComponent<HealthController>();

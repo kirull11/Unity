@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHp : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class EnemyHp : MonoBehaviour
     private void Death()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("Menu");
     }
 }
