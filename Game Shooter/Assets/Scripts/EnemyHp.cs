@@ -16,6 +16,5 @@ public class EnemyHp : MonoBehaviour
     private void Death()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene("Menu");
     }
 }
